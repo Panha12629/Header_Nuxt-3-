@@ -3,7 +3,7 @@
     <!-- Navbar -->
     <header class="w-full select-none fixed top-0 left-0 z-50">
       <div class="hidden lg:flex w-full  
-      bg-gradient-to-r from-yellow-200 to-orange-200">">
+      bg-gradient-to-r from-yellow-200 to-orange-200">
         <!-- Logo -->
         <div class="w-[300px] flex items-center justify-center bg-black rounded-tr-[60px] h-[100px]">
           <span class="text-white text-5xl font-light tracking-wide">LOGO</span>
@@ -61,38 +61,50 @@
         </div>
       </div>
 
-      <!-- Mobile -->
-      <div class="lg:hidden flex items-center justify-between h-[56px] bg-yellow-400 px-4 shadow-md">
-        <span class="text-white text-3xl font-light">LOGO</span>
-        <button @click="open = !open">
-          <Bars3Icon class="w-7 h-7 text-white" />
-        </button>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div v-if="open" class="lg:hidden bg-black text-white px-6 py-4 space-y-4">
-        <a v-for="item in topNav" :key="item" href="#" class="block text-sm uppercase hover:text-yellow-300">{{ item }}</a>
-        <div class="pt-4 border-t border-gray-700 flex gap-4 flex-col">
-          <template v-if="!user">
-            <button @click="$emit('open-login')" class="btn-auth bg-black text-white hover:bg-gray-800">Đăng nhập</button>
-            <button class="btn-auth bg-gray-700 text-white hover:bg-gray-800">Đăng ký</button>
-          </template>
-          <template v-else>
-            <button @click="toggleDropdown" class="btn-auth w-full flex justify-between items-center">
-              {{ user.name }}
-              <svg :class="{ 'rotate-180': dropdown }" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-
-            <div v-if="dropdown" class="bg-white text-black rounded-lg shadow-lg mt-2">
-              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
-              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
-              <button @click="logout" class="w-full text-left px-4 py-2 hover:bg-gray-100">Logout</button>
+      <!-- Mobile Navbar -->
+        <div class="lg:hidden flex flex-col w-full bg-black text-white shadow-md">
+          <div class="flex items-center justify-between h-[90px]  px-4
+           bg-gradient-to-r from-yellow-200 to-orange-200">
+            <div>
+               <span class="text-black text-4xl font-semibold">LOGO</span>
             </div>
-          </template>
+            <div class="flex items-center gap-3">
+              <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 text-sm font-medium">Vn </button>
+              <button @click="open = !open">
+                <Bars3Icon class="w-20 h-10 text-white" />
+              </button>
+            </div>
+          </div>
+          <div class="flex justify-around items-center h-[50px] border-t border-gray-700">
+            <a v-for="item in bottomNav" :key="item.label" href="#" class="flex flex-col items-center text-xs hover:text-yellow-300">
+              <img :src="item.icon" class="w-6 h-6 mb-1" />
+            </a>
+          </div>
         </div>
-      </div>
+
+        <!-- Mobile Menu -->
+        <div v-if="open" class="lg:hidden bg-black text-white px-6 py-4 space-y-4">
+          <div class="pt-4 border-t border-gray-700 flex gap-4 flex-col">
+            <template v-if="!user">
+              <button @click="$emit('open-login')" class="btn-auth bg-black text-white hover:bg-gray-800">Đăng nhập</button>
+              <button class="btn-auth bg-gray-700 text-white hover:bg-gray-800">Đăng ký</button>
+            </template>
+            <template v-else>
+              <button @click="toggleDropdown" class="btn-auth w-full flex justify-between items-center">
+                {{ user.name }}
+                <svg :class="{ 'rotate-180': dropdown }" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <div v-if="dropdown" class="bg-white text-black rounded-lg shadow-lg mt-2">
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+                <button @click="logout" class="w-full text-left px-4 py-2 hover:bg-red-100">Logout</button>
+              </div>
+            </template>
+          </div>
+        </div>
     </header>
   </div>
 </template>
