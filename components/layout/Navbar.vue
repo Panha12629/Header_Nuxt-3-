@@ -2,7 +2,8 @@
   <div>
     <!-- Navbar -->
     <header class="w-full select-none fixed top-0 left-0 z-50">
-      <div class="hidden lg:flex w-full bg-yellow-200 shadow-md">
+      <div class="hidden lg:flex w-full  
+      bg-gradient-to-r from-yellow-200 to-orange-200">">
         <!-- Logo -->
         <div class="w-[300px] flex items-center justify-center bg-black rounded-tr-[60px] h-[100px]">
           <span class="text-white text-5xl font-light tracking-wide">LOGO</span>
@@ -18,7 +19,7 @@
             <!-- User -->
             <div class="relative flex gap-2">
               <template v-if="!user">
-                <button @click="$emit('open-login')" class="btn-auth bg-white text-black hover:bg-gray-800">Đăng nhập</button>
+                <button @click="$emit('open-login')" class="btn-auth bg-white text-black hover:bg-gray-400">Đăng nhập</button>
                 <button class="btn-auth bg-gray-700 text-white hover:bg-gray-800">Đăng ký</button>
               </template>
               <template v-else>
@@ -49,7 +50,7 @@
             </nav>
 
             <div class="ml-auto flex items-center gap-4">
-             <button class="flex items-center gap-2 px-3 py-1 bg-white rounded-md shadow-sm hover:bg-gray-700 focus:outline-none border-radius ", viewBox="0 0 50 50">
+             <button class="flex items-center px-1 py-0.5 bg-white rounded-md shadow-sm hover:bg-gray-400 focus:outline-none border-radius ">
               <img src="../../public/Images/Flag.png" alt="VN" class="w-30 h-8 rounded-3xl shadow-sm" />
               <span class="text-sm font-medium text-black">Tiếng Việt</span>
             </button>
