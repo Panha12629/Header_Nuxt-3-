@@ -2,7 +2,7 @@
   <div>
     <!-- Navbar -->
     <header class="w-full select-none fixed top-0 left-0 z-50">
-      <div class="hidden lg:flex w-full bg-yellow-300 shadow-md">
+      <div class="hidden lg:flex w-full bg-yellow-200 shadow-md">
         <!-- Logo -->
         <div class="w-[300px] flex items-center justify-center bg-black rounded-tr-[60px] h-[100px]">
           <span class="text-white text-5xl font-light tracking-wide">LOGO</span>
